@@ -1,0 +1,80 @@
+
+
+    <h1 style="text-align:center;">Candidate List </h1>
+<div class="container" *ngIf="getAuthoritycheck()">
+    <p ><b> Search Candidate here: </b>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+       
+        <input type="text"  [(ngModel)]="Searchtext" class="form-control" placeholder="Search Candidate Record here via name or id or E-mail etc " >
+     
+    </p>   
+</div>
+
+
+<br>
+
+<table class="table table-hover" style="text-align: center;">
+    <thead>
+
+        <tr>
+            
+            <th>Id</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th colspan="2">Technical skills/Non-Technical skills:</th> 
+           
+            <th >Action</th>
+                </tr>
+               
+             
+                <tr *ngFor ="let x of Candidate  | filter:Searchtext">
+                 
+                     <Td>{{x.associateId}}</Td>
+                     <Td>{{x.name}}</Td>
+                     <Td>{{x.mobile}}</Td>
+                     <Td>{{x.emailid}}</Td>
+                     <Td >
+                   
+                      {{x.skill}}
+
+                     </Td>
+                     <th></th>
+                    
+                  
+                   
+                     <Td >
+                        <div class="container" style="background-color: red;" style="text-align: center;">
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <button (click)= "viewcandidate(x.id)" class="btn btn-primary" >view</button>
+                               
+                              </div>
+                              <div class="col-sm-3">
+                                <button (click)= "deletecandidate(x.id)" class="btn btn-danger"  *ngIf="getAuthoritycheck()">Delete</button>
+                              </div>
+                              <div class="col-sm-3">
+                                <button (click)= "updatecandidate(x.id)" class="btn btn-warning" *ngIf="getAuthoritycheck() || user.name ==x.name" >Update</button>
+                              </div>
+                            </div>
+                          </div>
+                         
+                          
+                         
+                        </Td>
+                          
+
+                       <!-- (click)="updatecandidate(x.associateId)"-->
+                 </tr>      
+                    
+                     
+             
+
+    </thead>
+
+
+
+   
+  </table>
+  

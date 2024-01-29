@@ -1,0 +1,36 @@
+
+
+<br>
+<div class="col-md-6 offset-md-3 card" >
+    <br>
+    <div class="text-center"><img src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg" alt="Girl in a jacket" width="70" height="70" ></div>
+<h2 class="text-center">Login</h2>
+<form (ngSubmit)="onSubmit()">
+
+
+          
+<div class="form-group" [formGroup]="registerform">
+    <label><b>username:</b></label>
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{'is-invalid':submitted && registerform.controls.username.errors && (registerform.controls.username.touched || username.dirty)}"  [(ngModel)] = "logindata.username " name="login" placeholder="Enter your Username">
+    <div class="form-text text-danger" *ngIf="username.errors?.['required'] && (username.touched || username.dirty)">username is required</div>    
+</div>
+
+          
+
+
+<div class="form-group" [formGroup]="registerform">
+            <label><b>password:</b></label>
+            <input type="password" formControlName="password" [ngClass]="{'is-invalid':submitted && registerform.controls.password.errors && (registerform.controls.password.touched ||registerform.controls.password.dirty)}" class="form-control" [(ngModel)] = "logindata.password " name="login" placeholder="Enter your password">
+            <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">password should be atleast 6 and at the max 15 character long  </div>        
+            <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">password required</div>        
+        </div>
+
+<br>
+<div class="text-center">
+    <button class="btn btn-primary  " [disabled]="registerform.invalid" type="submit">submit</button>
+    <button  style="margin-left: 10px;" type="reset" class="btn btn-success ">Clear</button>
+</div>
+
+</form>
+<br>
+</div>

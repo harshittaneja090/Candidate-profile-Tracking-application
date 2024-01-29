@@ -1,0 +1,28 @@
+<div class="form-group text-center" >
+    <label for="#">Technical/Non_technical skills: </label>
+    <br>
+    <select  name="technicalskills" id="technicalskills" style="margin-left: 10px;" [(ngModel)] = "Skill.technicalskills">
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JAVASCRIPT">JAVASCRIPT </option>
+      <option value="ANGULAR">ANGULAR</option>
+      <option value="REACT">REACT </option>
+      <option value="SPRING">SPRING</option>
+      <option value="RESTFUL">RESTFUL</option>
+      <option value="HIBERNATE">HIBERNATE</option>
+      <option value="GIT">GIT</option>
+     <option value="DOCKER ">DOCKER </option>
+  <option value="JENKINS">JENKINS</option>
+    <option value="AWS">AWS </option>
+    <option value="SPOKEN">SPOKEN</option>
+          <option value="COMMUNICATION">COMMUNICATION </option>
+          <option value="APTITUDE">APTITUDE</option>
+    </select>
+   
+    <label for="vol"  style="margin-left: 10px;">Level (between 0 and 20):</label>
+    <input type="range"  id="technicalskillslevel" name="technicalskillslevel" min="0" max="20"  [(ngModel)] = "Skill.technicalskillslevel" (input)="valueChanged1($event)">
+    <label style="margin-left: 10px;" >{{ rangevalue1 }}</label>
+
+  
+
+     </div>

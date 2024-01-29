@@ -1,0 +1,17 @@
+.footer{
+
+position: absolute;
+    height: 24px;
+    background-color:rgb(205, 33, 85);
+    color: white;
+    text-align: center;
+    
+    
+    
+    
+    padding-top: 15px;
+    padding-bottom: 30px;
+    z-index: 1;
+    bottom:0;
+    width:100%;
+    }

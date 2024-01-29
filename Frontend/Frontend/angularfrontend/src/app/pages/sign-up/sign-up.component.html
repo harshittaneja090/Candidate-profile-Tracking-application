@@ -1,0 +1,50 @@
+<br>
+<div class="col-md-6 offset-md-3 card" >
+    <br>
+    <div class="text-center"><img src="https://www.vippng.com/png/detail/166-1666395_png-file-register-icon-png.png" alt="Girl in a jacket" width="80" height="80" ></div>
+<h2 class="text-center"> Register Here <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+    <path d="M12.1080.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+  </svg></h2>
+<form (ngSubmit)="onSubmit()">
+
+
+          
+<div class="form-group" [formGroup]="registerform">
+    <label><b>Username*</b></label>
+    <input required type="text" formControlName="username" class="form-control" [ngClass]="{'is-invalid':submitted && registerform.controls.username.errors && (registerform.controls.username.touched || username.dirty)}" [(ngModel)] = "user.username" name="username" placeholder="Provide your Username">
+    <div class="form-text text-danger" *ngIf="username.errors?.['required'] && (username.touched || username.dirty)">username is required</div>    
+</div>
+
+          
+<div class="form-group" [formGroup]="registerform">
+    <label><b>Name*</b></label>
+    <input required type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid':submitted && registerform.controls.name.errors && (registerform.controls.name.touched || name.dirty)}"  [(ngModel)] = "user.name"  name="name"  placeholder="Provide your name">
+    <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">name is required</div>    
+</div>
+    
+
+<div class="form-group" [formGroup]="registerform">
+            <label><b>Password*</b></label>
+            <input required type="password" formControlName="password1" [ngClass]="{'is-invalid':submitted && registerform.controls.password1.errors && (registerform.controls.password1.touched ||registerform.controls.password1.dirty)}"  [(ngModel)] = "user.password" class="form-control" name="password"   placeholder="Provide your password">
+            <div class="form-text text-danger" *ngIf="password1.errors?.['required'] && (password1.touched || password1.dirty)">password should be atleast 6 and at the max 15 character long  </div>        
+            <div class="form-text text-danger" *ngIf="password1.errors?.['required'] && (password1.touched || password1.dirty)">password required</div>        
+        </div>
+
+        <div class="form-group" [formGroup]="registerform" >
+            <label><b>Email*</b></label>
+            <input required type="email" class="form-control" id="emailid" formControlName="emailid"  [ngClass]="{'is-invalid':submitted && registerform.controls.emailid.errors && (registerform.controls.emailid.touched || emailid.dirty)}"   [(ngModel)] = "user.email" name="email" placeholder="123@fmail.com">
+            <div class="form-text text-danger" *ngIf="emailid.errors?.['required'] && (emailid.touched || emailid.dirty)">Email is required</div>
+            
+            <div class="form-text text-danger" *ngIf="emailid.errors?.['email'] && (emailid.touched || emailid.dirty)">E-mail is invalid</div>     
+          </div>
+
+<br>
+<div class="text-center">
+    <button class="btn btn-primary" type="submit"[disabled]="registerform.invalid" >Register</button>
+   
+    <button  style="margin-left: 10px;" type="reset" class="btn btn-success ">Clear</button>
+</div>
+
+</form>
+<br>
+</div>

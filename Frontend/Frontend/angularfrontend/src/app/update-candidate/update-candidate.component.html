@@ -1,0 +1,166 @@
+
+<div class="container">
+    <div class="text-center "><img src=" https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"  width="70" height="70" ></div>
+    <h2>Update Candidate</h2>
+  <!--<form  (ngSubmit)="onSubmit()">-->
+<form>
+      <div class="form-group" [formGroup]="registerform">
+      <label>AssociateId* </label>
+      <input   required type="text" class="form-control" formControlName="associateId1"  [ngClass]="{'is-invalid':submitted && registerform.controls.associateId1.errors && (registerform.controls.associateId1.touched || associateId1.dirty)}"  [(ngModel)] = "candidate.associateId " name="associateId" placeholder="Example CTS1345" [readonly]=truevalue>
+      <div class="form-text text-danger" *ngIf="associateId1.errors?.['required'] && (associateId1.touched || associateId1.dirty)">id is required</div>
+      <div class="form-text text-danger" *ngIf="associateId1.errors?.['minlength']&& (associateId1.touched || associateId1.dirty)">Atleast 3 character required</div>   
+      <div class="form-text text-danger" *ngIf="associateId1.errors?.['maxlength']&& (associateId1.touched || associateId1.dirty)">Max 30 Characters</div>   
+      </div>
+                
+      <div class="form-group" [formGroup]="registerform" >
+          <label >Name*</label>
+          <input  type="text" class="form-control "  formControlName="name1"   [ngClass]="{'is-invalid':submitted && registerform.controls.name1.errors && (registerform.controls.name1.touched || name1.dirty)}"  id="Name"  [(ngModel)] = "candidate.name  " name="Name" placeholder="Enter your name " [readonly]=truevalue>
+      <div class="form-text text-danger" *ngIf="name1.errors?.['required'] && (name1.touched || name1.dirty)">Name is required</div>
+      <div class="form-text text-danger" *ngIf="name1.errors?.['minlength']&& (name1.touched || name1.dirty)">Name is to short</div>   
+      <div class="form-text text-danger" *ngIf="name1.errors?.['pattern'] && (name1.touched || name1.dirty)">Name must start with alphabet</div>   
+          <!--[ngClass]="{'is-invalid':submitted  && registerform.controls.name1.errors} [formGroup]="registerform"-->
+        </div>
+      
+          <div class="form-group" [formGroup]="registerform" >
+              <label>Mobile No*</label>
+              <input  type="text" class="form-control"  formControlName="mobile1"    [ngClass]="{'is-invalid':submitted && registerform.controls.mobile1.errors && (registerform.controls.mobile1.touched || mobile1.dirty)}"  id="mobile" [(ngModel)] = "candidate.mobile " name="mobile" placeholder="enter your mobile no " [readonly]=truevalue>
+         
+              <div class="form-text text-danger" *ngIf="mobile1.errors?.['required'] && (mobile1.touched || mobile1.dirty)">Mobile-no is required</div>
+              <div class="form-text text-danger" *ngIf="mobile1.errors?.['minlength'] || mobile1.errors?.['maxlength'] && (mobile1.touched || mobile1.dirty)">Mobile-no  is invalid</div>   
+          
+              <div class="form-text text-danger" *ngIf="mobile1.errors?.['pattern'] && (mobile1.touched || mobile1.dirty)">Mobile-no  must not alphabet</div> 
+            </div>
+      
+              <div class="form-group" [formGroup]="registerform" >
+                  <label>Email*</label>
+                  <input required type="email" class="form-control" id="emailid" formControlName="emailid1"  [ngClass]="{'is-invalid':submitted && registerform.controls.emailid1.errors && (registerform.controls.emailid1.touched || emailid1.dirty)}"  [(ngModel)] = "candidate.emailid " name="emailid" placeholder="123@fmail.com" [readonly]=truevalue>
+                  <div class="form-text text-danger" *ngIf="emailid1.errors?.['required'] && (emailid1.touched || emailid1.dirty)">Email is required</div>
+                  
+                  <div class="form-text text-danger" *ngIf="emailid1.errors?.['email'] && (emailid1.touched || emailid1.dirty)">E-mail is invalid</div>     
+                </div>
+      <!---old approach 
+                <div class="form-group">
+                  <label for="#">Technical/Non_technical skills: </label>
+                  <br>
+                  <select multiple name="technicalskills" id="technicalskills" style="margin-left: 10px;" [(ngModel)] = "Skill.technicalskills">
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JAVASCRIPT">JAVASCRIPT </option>
+                    <option value="ANGULAR">ANGULAR</option>
+                    <option value="REACT">REACT </option>
+                    <option value="SPRING">SPRING</option>
+                    <option value="RESTFUL">RESTFUL</option>
+                    <option value="HIBERNATE">HIBERNATE</option>
+                    <option value="GIT">GIT</option>
+                   <option value="DOCKER ">DOCKER </option>
+                <option value="JENKINS">JENKINS</option>
+                  <option value="AWS">AWS </option>
+                  <option value="SPOKEN">SPOKEN</option>
+                        <option value="COMMUNICATION">COMMUNICATION </option>
+                        <option value="APTITUDE">APTITUDE</option>
+                  </select>
+                 
+                  <label for="vol"  style="margin-left: 10px;">Level (between 0 and 20):</label>
+                  <input type="range"  id="technicalskillslevel" name="technicalskillslevel" min="0" max="20"  [(ngModel)] = "Skill.technicalskillslevel" (input)="valueChanged1($event)">
+                  <label style="margin-left: 10px;" >{{ rangevalue1 }}</label>
+      
+                
+      
+                   </div>
+      -->
+      
+          <!--  new approach   -->
+<p>Skill Section: </p>
+
+
+
+
+<div class="form-group card "   style="width: 60%;"  >
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+       
+        <label for="#">Technical skills: </label>
+        <br>
+<select  name="technicalskills" id="technicalskills" style="margin-left: 10px;" [(ngModel)] = "Skill.technicalskills">
+  <option value="HTML">HTML</option>
+  <option value="CSS">CSS</option>
+  <option value="JAVASCRIPT">JAVASCRIPT </option>
+  <option value="ANGULAR">ANGULAR</option>
+  <option value="REACT">REACT </option>
+  <option value="SPRING">SPRING</option>
+  <option value="RESTFUL">RESTFUL</option>
+  <option value="HIBERNATE">HIBERNATE</option>
+  <option value="GIT">GIT</option>
+ <option value="DOCKER ">DOCKER </option>
+<option value="JENKINS">JENKINS</option>
+<option value="AWS">AWS </option>
+
+</select>
+<br>
+<label for="#">Non_technical skills: </label>
+<br>
+<select  name="technicalskills" id="nontechnicalskills" style="margin-left: 10px;" [(ngModel)] = "Skill.technicalskills">
+ 
+<option value="SPOKEN">SPOKEN</option>
+      <option value="COMMUNICATION">COMMUNICATION </option>
+      <option value="APTITUDE">APTITUDE</option>
+</select>
+<br>
+<label for="vol"  style="margin-left: 10px;">Level (between 0 and 20):</label>
+<br>
+<input type="range"  id="technicalskillslevel" name="technicalskillslevel" min="0" max="20"  [(ngModel)] = "Skill.technicalskillslevel" (input)="valueChanged1($event)">
+<label style="margin-left: 10px;" >{{ rangevalue1 }}</label>
+<br>
+
+<button class="btn btn-warning " style="margin-bottom: 4px; " (click)= "addskillvaluefeature()">Add skill</button>
+<button class="btn btn-success " style="margin-bottom: 4px; margin-left: 2px;" (click)= "clearfunctionality()">clear</button>
+<br>
+      </div>
+      <div class="col-sm">
+        <p>Added Skills List</p>
+        <div class="box card " style="width: 100%;">
+          <div *ngIf=" valuedfunction()" class="skillbox">
+
+
+
+
+<p>{{String1}}</p>
+
+
+
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+ </div>           
+      
+      
+                  
+      
+      <button class="btn btn-success " style="float: right;"  (click)= " onSubmit()" type="button" [disabled]="registerform.invalid" > Submit</button>
+      <br>
+      
+      
+      </form>
+      <br>
+    </div>
+
+<!--
+<div>Skill page :</div>
+<app-skillspage></app-skillspage>
+-->
+    <br>
+

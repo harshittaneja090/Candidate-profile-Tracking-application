@@ -1,0 +1,44 @@
+<h1 style="text-align: center;">Welcome {{Name}}</h1>
+<br>
+<br>
+<div class="container" >
+    <div class="row">
+      <div class="col-sm">
+        <div class="card" style="width: 16rem;" id="boxes">
+            <img class="card-img-top" src="https://i0.wp.com/ggcnj-dec2021.mystagingwebsite.com/wp-content/uploads/2021/12/better-ballots-Recovered-04.png?w=1665&ssl=1" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">ADD  Candidate</h5>
+              <p class="card-text">Click the below button to Add a New candidate.</p>
+              <button (click)= "Addcandidate()" class="btn btn-success" >click Here</button>
+            </div>
+          </div>
+      </div>
+      <div class="col-sm">
+    
+
+        <div class="card" style="width: 16rem;" id="boxes">
+            <img class="card-img-top" src="https://www.lavote.gov/Sitefinity/WebsiteTemplates/v2/images/icon_top_request_voter_registration_status.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">View All Candidate List</h5>
+              <p class="card-text">Click the below button to view list of candidates</p>
+              <button (click)= "candidatelist()" class="btn btn-info" >click Here</button>
+            </div>
+          </div>
+      </div>
+      
+
+
+      <div class="col-sm">
+    
+
+        <div class="card" style="width: 16rem;" id="boxes">
+            <img class="card-img-top" src="https://static.vecteezy.com/system/resources/previews/006/742/311/original/male-person-with-tick-mark-denoting-selected-candidate-concept-icon-vector.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">view your Details </h5>
+              <p class="card-text">Click the below button to update few details</p>
+              <button  class="btn btn-warning"(click)= "userprofile()"  >click Here</button>
+            </div>
+          </div>
+      </div>
+    </div>
+

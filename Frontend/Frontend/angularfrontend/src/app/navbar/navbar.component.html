@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(205, 33, 85)">
+    <a class="navbar-brand text-dark" routerLink="helloapplicationComponent"> <img src="assets/logo.png" width="40px" height="40px"> <b>  Candidate Profile Tracker</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!--
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        -->
+        <li class="nav-item" *ngIf="loginservice.isLoggedIn && user">
+          <!-- -->
+          <a class="nav-link" routerLink="candidate" routerLinkActive="active"style="color: white"> <b>Candidate List</b></a>  
+        </li>
+        <li class="nav-item">
+          <!-- -->
+          <a class="nav-link "*ngIf="loginservice.isLoggedIn && user" routerLink="create-candidate" routerLinkActive="active"style="color: white"> <b> Add Candidate</b></a>
+        </li>
+       
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+           
+              <a *ngIf="!loginservice.isLoggedIn()" class="nav-link float-right" routerLink="login" routerLinkActive="active"style="color: white"><b>login</b></a>  
+     
+          </li>
+          <li class="nav-item">
+           
+            <a *ngIf="!loginservice.isLoggedIn()" class="nav-link float-right" routerLink="sign-up" routerLinkActive="active"style="color: white"><b>Register</b></a>  
+   
+        </li>
+
+        <li class="nav-item">
+           
+          <a *ngIf="loginservice.isLoggedIn()" (click)="logout()" class="nav-link float-right" routerLink="sign-up" routerLinkActive="active"style="color: white"><b>logout</b></a>  
+ 
+      </li>
+      <li class="nav-item">
+           <!--[routerLink]="[navabarhome()]"-->
+        <a *ngIf="loginservice.isLoggedIn()" class="nav-link float-right"  routerLinkActive="active"  [routerLink]="[routerpath]"  style="color: white"><b>{{user.name}}</b></a>  
+
+    </li>
+      <li class="nav-item">
+           
+     
+
+    </li>
+   
+  
+         
+          </ul>
+      </form>
+    </div>
+  </nav>
+  
